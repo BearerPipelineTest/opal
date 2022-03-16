@@ -396,12 +396,12 @@ class ::Module
               end
 
     %x{
-      if (typeof(Proxy) !== 'undefined' && typeof(Reflect) !== 'undefined') {
+      if (typeof(Proxy) !== 'undefined') {
         var meta = Object.create(null)
 
         block = new Proxy(block, {
           apply: function(target, self, args) {
-            target.$$jsid = name
+            target.$$jsid = name;
             return target.apply(self, args);
           }
         })
